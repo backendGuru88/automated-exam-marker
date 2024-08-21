@@ -3,7 +3,6 @@ from PIL import Image
 import pytesseract
 import cv2
 import numpy as np
-
 def pre_process_image(image):
     gray_image = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2GRAY)
     _, thresh_image = cv2.threshold(gray_image, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
@@ -28,8 +27,8 @@ def compare_answers(teacher_text, student_text, score_per_question, answer_separ
     teacher_answers = teacher_text.split(answer_separator)
     student_answers = student_text.split(answer_separator)
     
-    st.write("Teacher Answers List (for debugging):", teacher_answers)  # Debugging
-    st.write("Student Answers List (for debugging):", student_answers)  # Debugging
+    st.write("Teacher Answers List :", teacher_answers)  # Debugging
+    st.write("Student Answers List :", student_answers)  # Debugging
     
     total_questions = len(teacher_answers)
     correct_answers = 0
@@ -85,3 +84,11 @@ if teacher_image and student_image and total_score_per_question:
         st.write("Result⬇️")
         st.write(f"Student Correct Answers: {correct_answers}")
         st.write(f"Total Score: {total_score}")
+
+
+
+
+
+"""
+https://school-project-nu.vercel.app/
+"""
